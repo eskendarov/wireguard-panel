@@ -122,6 +122,8 @@ def download_config(peer_id):
     peer = peers_store.get_peer(peer_id)
     if not peer:
         return jsonify({"error": "not found"}), 404
+    if not peer.get("private_key"):
+            return jsonify({"error": "no_private_key"}), 409
     config_text = wg.build_client_config(peer)
     buffer = io.BytesIO(config_text.encode())
     return send_file(
@@ -138,6 +140,8 @@ def peer_qr(peer_id):
     peer = peers_store.get_peer(peer_id)
     if not peer:
         return jsonify({"error": "not found"}), 404
+    if not peer.get("private_key"):
+            return jsonify({"error": "no_private_key"}), 409
     config_text = wg.build_client_config(peer)
     img = qrcode.make(config_text)
     buffer = io.BytesIO()

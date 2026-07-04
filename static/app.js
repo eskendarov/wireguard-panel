@@ -104,6 +104,11 @@ document.getElementById("add-form").addEventListener("submit", async (e) => {
 peersBody.addEventListener("click", async (e) => {
   const target = e.target;
   if (target.dataset.qr) {
+    const res = await fetch(`/api/peers/${target.dataset.qr}/qr`);
+    if (!res.ok) {
+      alert("No QR available for this client — it was imported without a stored private key.");
+      return;
+    }
     document.getElementById("qr-name").textContent = target.dataset.name;
     document.getElementById("qr-image").src = `/api/peers/${target.dataset.qr}/qr?t=${Date.now()}`;
     document.getElementById("qr-download").href = `/api/peers/${target.dataset.qr}/config`;
