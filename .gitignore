@@ -1,0 +1,15 @@
+# Secrets & real config — NEVER commit these
+.env
+config/peers.json
+config/settings.json
+*.conf
+!config/*.example.*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store

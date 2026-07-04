@@ -1,0 +1,15 @@
+{
+  "peers": [
+    {
+      "id": "b6f1e2a0-0000-4000-8000-000000000001",
+      "name": "Example client",
+      "public_key": "REPLACE_ME=",
+      "private_key": "REPLACE_ME=",
+      "preshared_key": "REPLACE_ME=",
+      "address_v4": "10.8.0.2",
+      "address_v6": "fd42:42:42::2",
+      "enabled": true,
+      "created_at": "2026-01-01T00:00:00+00:00"
+    }
+  ]
+}

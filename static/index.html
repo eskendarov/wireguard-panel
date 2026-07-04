@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>WireGuard Panel</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div id="login-screen" class="screen">
+  <form id="login-form" class="card">
+    <h1>WireGuard Panel</h1>
+    <input type="password" id="login-password" placeholder="Password" autofocus required>
+    <button type="submit">Sign in</button>
+    <p id="login-error" class="error"></p>
+  </form>
+</div>
+
+<div id="main-screen" class="screen hidden">
+  <header>
+    <h1>WireGuard Panel</h1>
+    <div>
+      <button id="add-btn" class="primary">+ Add client</button>
+      <button id="logout-btn" class="ghost">Log out</button>
+    </div>
+  </header>
+
+  <table id="peers-table">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Upload</th>
+        <th>Download</th>
+        <th>Last handshake</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="peers-body"></tbody>
+  </table>
+</div>
+
+<div id="add-modal" class="modal hidden">
+  <div class="card">
+    <h2>New client</h2>
+    <form id="add-form">
+      <input type="text" id="add-name" placeholder="e.g. Mom's phone" required>
+      <button type="submit" class="primary">Create</button>
+      <button type="button" class="ghost" data-close>Cancel</button>
+    </form>
+  </div>
+</div>
+
+<div id="qr-modal" class="modal hidden">
+  <div class="card">
+    <h2 id="qr-name"></h2>
+    <img id="qr-image" alt="QR code">
+    <div class="qr-actions">
+      <a id="qr-download" download class="primary">Download .conf</a>
+      <button type="button" class="ghost" data-close>Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
